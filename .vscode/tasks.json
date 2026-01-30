@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Sim: hello_tb",
+      "type": "shell",
+      "command": "iverilog",
+      "args": ["-g2012", "-o", "sim/hello.out", "tb/hello_tb.v"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Run: hello_tb",
+      "type": "shell",
+      "command": "vvp",
+      "args": ["sim/hello.out"],
+      "problemMatcher": [],
+      "dependsOn": ["Sim: hello_tb"]
+    },
+    {
+      "label": "Sim: wave_tb",
+      "type": "shell",
+      "command": "iverilog",
+      "args": ["-g2012", "-o", "sim/wave.out", "tb/wave_tb.v"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Run+Wave: wave_tb",
+      "type": "shell",
+      "command": "cmd",
+      "args": ["/c", "vvp sim/wave.out && gtkwave sim/wave.vcd"],
+      "problemMatcher": [],
+      "dependsOn": ["Sim: wave_tb"]
+    }
+  ]
+}

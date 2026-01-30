@@ -1,0 +1,19 @@
+# Simulation outputs
+sim/*.out
+sim/*.vcd
+
+# Optional: GTKWave leftovers
+*.gtkw
+
+# Editor / OS junk
+.vscode/*
+!.vscode/tasks.json
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.log
+*.tmp
+
+# Irrelevant
+tb/hello_tb.v 
